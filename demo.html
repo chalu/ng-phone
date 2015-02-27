@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="">
+  <head>
+  <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ng-phone Demo</title>
+
+  <script src="../webcomponentsjs/webcomponents.js"></script>
+
+  <link rel="import" href="ng-phone.html">
+  <link rel="import" href="../paper-input/paper-input-decorator.html" />
+
+  <style type="text/css">
+    .hint{
+      padding:1em 3em;
+    }
+  </style>
+</head>
+
+<body unresolved>
+
+<div layout horizontal>
+
+  <div flex one>
+    <paper-input-decorator label="Phone Number" 
+      error="Please enter a valid MTN or GLO phone number" 
+      floatingLabel autoValidate>
+
+          <input is="ng-phone" mtn glo />
+
+      </paper-input-decorator>
+
+      <p>Enter a valid mtn or glo number as valid input. You can also test out the validation by entering invalid glo or mtn numbers e.g zain / etisalat numbers</p>
+  </div>
+  <div class="hint" flex three>
+    <h4>Example usage</h4>
+    <code>
+      &lt;input is=&quot;ng-phone&quot; mtn glo /&gt;
+    </code>
+    <p>The above code snippet creates a Polymer input field that will only accept valid MTN or GLO phone numbers. Other supported carriers include AIRTEL, and ETISALAT.</p>
+  </div>
+  
+</div>
+
+  <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-60151601-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+
+</body>
+</html>
+

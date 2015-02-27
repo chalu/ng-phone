@@ -1,0 +1,111 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../core-input/core-input.html">
+
+<!--
+Custom input element providing validation for Nigerian mobile phone numbers. With ng-phone, you can declare an input field to only take, say, GLO or MTN phone numbers.
+
+##### Example
+
+    <input is="ng-phone" mtn glo />
+
+@element ng-phone
+@blurb Web Component providing input validation for Nigerian mobile phone numbers.
+@status alpha
+@homepage http://chaluwa.github.io/ng-phone
+-->
+<polymer-element name="ng-phone" extends="core-input">
+
+  <script>
+    Polymer({
+
+      publish: {
+
+        /**
+         * Allow / dis-allow entry of GLO phone numbers.
+         *
+         * @property glo
+         * @type bool
+         * @default false
+         */
+        glo: false,
+
+        /**
+         * Allow / dis-allow entry of MTN phone numbers.
+         *
+         * @property glo
+         * @type bool
+         * @default false
+         */
+        mtn: false,
+
+        /**
+         * Allow / dis-allow entry of AIRTEL phone numbers.
+         *
+         * @property glo
+         * @type bool
+         * @default false
+         */
+        airtel: false,
+
+        /**
+         * Allow / dis-allow entry of ETISALAT phone numbers.
+         *
+         * @property glo
+         * @type bool
+         * @default false
+         */
+        etisalat: false/*,
+        preventInvalidInput: true*/
+
+      },
+
+      patternPrefix: "^0",
+      patternSuffix: "\\d{7}$",
+      allPattern: "(708|802|808|812|705|805|811|807|815|703|706|803|806|810|813|816|814|809|817|818|909)",
+
+      maybeAddSeparator: function(ptrn){
+          if(ptrn.indexOf("|") != -1){
+            ptrn += "|";
+          }
+          return ptrn;
+      },
+
+      ready: function() {
+        this.setValidationPattern();
+      },
+
+      setValidationPattern: function(){
+        var pattern = "(";
+
+        if(this.airtel){
+          pattern = this.maybeAddSeparator(pattern);
+          pattern += "708|802|808|812";
+        }
+
+        if(this.etisalat){
+          pattern = this.maybeAddSeparator(pattern);
+          pattern += "809|817|818|909";
+        }
+
+        if(this.glo){
+          pattern = this.maybeAddSeparator(pattern);
+          pattern += "705|805|811|807|815";
+        }
+
+        if(this.mtn){
+          pattern = this.maybeAddSeparator(pattern);
+          pattern += "703|706|803|806|810|813|816|814";
+        }
+
+        pattern += ")";
+
+        if("()" == pattern){
+          pattern = this.allPattern;
+        }
+
+        pattern = this.patternPrefix + pattern + this.patternSuffix;
+        this.setAttribute("pattern", pattern);
+      }
+    });
+  </script>
+</polymer-element>
