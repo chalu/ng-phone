@@ -7,8 +7,7 @@
 
   <script src="../webcomponentsjs/webcomponents.js"></script>
 
-  <link rel="import" href="ng-phone.html">
-  <link rel="import" href="http://www.polymer-project.org/components/paper-input/paper-input-decorator.html">
+  <link rel="import" href="../ng-phone/ng-phone.html">
   <link rel="import" href="../paper-input/paper-input-decorator.html" />
 
   <style type="text/css">
@@ -23,16 +22,19 @@
 <div layout horizontal>
 
   <div flex one>
-    <paper-input-decorator label="Phone Number" 
-      error="Please enter a valid MTN or GLO phone number" 
-      floatingLabel autoValidate>
+    <template is="auto-binding">
+      <paper-input-decorator label="Phone Number" 
+        error="Please enter a valid MTN or GLO phone number" 
+        floatingLabel autoValidate>
 
-          <input is="ng-phone" mtn glo />
+            <input id="contact" is="ng-phone" required mtn glo />
 
-      </paper-input-decorator>
+        </paper-input-decorator>
 
-      <p>Enter a valid mtn or glo number as valid input. You can also test out the validation by entering invalid glo or mtn numbers e.g zain / etisalat numbers</p>
-      <h4>Status {{}}</h4>
+        <h4>Valid MTN / GLO Number :  {{$.contact.validity.valid}}</h4>
+      </template>
+
+      <p>Enter any mtn or glo number as valid input. You can also test out the validation of this demo by entering invalid numbers e.g zain / etisalat numbers</p>
   </div>
   <div class="hint" flex three>
     <h4>Example usage</h4>
