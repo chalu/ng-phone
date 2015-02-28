@@ -1,0 +1,27 @@
+{
+  "name": "ng-phone",
+  "keywords": [
+    "seed",
+    "polymer",
+    "web-components"
+  ],
+  "main": "ng-phone.html",
+  "dependencies": {
+    "polymer": "Polymer/polymer#^0.5.4",
+    "core-input": "Polymer/core-input#~0.5.5"
+  },
+  "devDependencies": {
+    "web-component-tester": "Polymer/web-component-tester#^2.2.3"
+  },
+  "homepage": "https://github.com/chalu/ng-phone",
+  "_release": "cb41ce6258",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "cb41ce62581676c178c5c4eb5da634b26c641e1f"
+  },
+  "_source": "git://github.com/chalu/ng-phone.git",
+  "_target": "master",
+  "_originalSource": "chalu/ng-phone",
+  "_direct": true
+}

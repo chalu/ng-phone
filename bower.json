@@ -1,0 +1,7 @@
+{
+  "name": "ng-phone#gh-pages",
+  "private": true,
+  "dependencies": {
+    "ng-phone": "chalu/ng-phone#master"
+  }
+}

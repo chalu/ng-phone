@@ -1,0 +1,17 @@
+{
+  "name": "ng-phone",
+  "version": "0.0.1",
+  "keywords": [
+    "seed",
+    "polymer",
+    "web-components"
+  ],
+  "main": "ng-phone.html",
+  "dependencies": {
+    "polymer": "Polymer/polymer#^0.5.4",
+    "core-input": "Polymer/core-input#~0.5.5"
+  },
+  "devDependencies": {
+    "web-component-tester": "Polymer/web-component-tester#^2.2.3"
+  }
+}
